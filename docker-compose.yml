@@ -1,0 +1,16 @@
+  
+version: '3'
+
+networks:
+  wabanex-network:
+    driver: bridge
+
+services:
+  db:
+    image: 'postgres'
+    ports: 
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=wabanex
+    networks:
+      - wabanex-network

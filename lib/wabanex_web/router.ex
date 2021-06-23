@@ -2,13 +2,27 @@ defmodule WabanexWeb.Router do
   use WabanexWeb, :router
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/api", WabanexWeb do
-    pipe_through :api
+    pipe_through(:api)
 
-    get "/imc/:filename", IMCController, :index
+    get("/imc/:filename", IMCController, :index)
+  end
+
+  scope "/api" do
+    pipe_through(:api)
+
+    forward "/graphql", Absinthe.Plug, schema: WabanexWeb.Schema
+
+    # Enable playground only for development
+    if Mix.env() == :dev do
+      forward "/graphiql",
+              Absinthe.Plug.GraphiQL,
+              schema: WabanexWeb.Schema,
+              interface: :playground
+    end
   end
 
   # Enables LiveDashboard only for development
@@ -22,8 +36,8 @@ defmodule WabanexWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through [:fetch_session, :protect_from_forgery]
-      live_dashboard "/dashboard", metrics: WabanexWeb.Telemetry
+      pipe_through([:fetch_session, :protect_from_forgery])
+      live_dashboard("/dashboard", metrics: WabanexWeb.Telemetry)
     end
   end
 end

@@ -20,7 +20,6 @@ defmodule Wabanex.IMC do
   defp parse_line(line) do
     line
     |> String.split(",")
-    |> IO.inspect()
     |> List.update_at(1, &String.to_float/1)
     |> List.update_at(2, &String.to_float/1)
     |> calculate_imc()

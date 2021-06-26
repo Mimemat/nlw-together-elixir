@@ -7,7 +7,7 @@ defmodule Wabanex.Training do
   @primary_key {:id, :binary_id, autogenerate: true}
   @foreign_key_type :binary_id
 
-  @required_params [:start_date, :end_date]
+  @required_params [:start_date, :end_date, :user_id]
 
   schema "trainings" do
     field :start_date, :date

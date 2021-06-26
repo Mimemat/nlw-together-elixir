@@ -8,7 +8,7 @@ defmodule WabanexWeb.Router do
   scope "/api", WabanexWeb do
     pipe_through(:api)
 
-    get("/imc/:filename", IMCController, :index)
+    get("/imc/", IMCController, :index)
   end
 
   scope "/api" do

@@ -1,19 +1,51 @@
-# Wabanex
+![Mission elixir](https://i.imgur.com/XUtdr1o.png)
+<h2 align="center"> Next Level Week:  Mission Elixir </h2>
+<p align="center">
+	<img src="https://img.shields.io/badge/Elixir-503C54?style=for-the-badge&logo=elixir&logoColor=white">
+	<img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+	<a href="https://github.com/Mimemat/nlw-together-elixir">
+	<img src="https://img.shields.io/github/stars/Mimemat/nlw-together-elixir?style=for-the-badge" 	/>
+	</a>
+</p>
 
-To start your Phoenix server:
+A project made during Rocketseat's Next Level Week Together
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+### Technologies 🖥️
+- Elixir
+- Phoenix
+- Docker
+- Postgres
+- Absinthe
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+### Extra improvements
+- JWT Authentication
+- Password hashing
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+### How to run
+#### Requirements
+- Elixir
+- Docker
+- Erlang
+- Git
+####  Running
+```bash
+# Clone the repository
+$ git clone https://github.com/Mimemat/nlw-together-elixir wabanex
 
-## Learn more
+# Go to its directory
+$ cd wabanex/
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+# Install dependencies
+$ mix deps.get
+
+# Run database using docker
+$ docker compose up -d 
+
+# Setup database
+$ mix ecto.setup
+
+# Run server
+$ mix phx.server
+
+# Server will run on port 4000
+ ``` 

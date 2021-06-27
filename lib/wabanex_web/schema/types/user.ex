@@ -9,6 +9,11 @@ defmodule WabanexWeb.Schema.Types.User do
     field :trainings, list_of(:training)
   end
 
+  @desc "Login token representation"
+  object :token do
+    field :token, non_null(:string)
+  end
+
   input_object :create_user_input do
     field :name, non_null(:string), description: "User's name"
     field :email, non_null(:string), description: "User's email"

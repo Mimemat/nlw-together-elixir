@@ -14,6 +14,11 @@ config :wabanex, Wabanex.Repo,
   migration_primary_key: [type: :binary_id],
   migration_foreign_key: [type: :binary_id]
 
+config :wabanex, WabanexWeb.Auth.Guardian,
+  issuer: "wabanex",
+  ttl: {30, :days},
+  secret_key: "y6CNXPl4pHihPJuhxH7VJn34tsiBH37YlP/VZ9zaywfYwZ5ubpV3sfk5pBVD9e15"
+
 # Configures the endpoint
 config :wabanex, WabanexWeb.Endpoint,
   url: [host: "localhost"],

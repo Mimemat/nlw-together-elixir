@@ -33,10 +33,18 @@ defmodule WabanexWeb.Schema.Types.Root do
 
     field :create_training, type: :training do
       arg :data, non_null(:create_training_input)
+      arg :token, non_null(:string)
 
       resolve &TrainingResolver.create/2
 
       middleware TranslateErrors
+    end
+
+    field :login, type: :token do
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+
+      resolve &UserResolver.login/2
     end
   end
 end
